@@ -10,8 +10,8 @@ class CustomError extends Error {
 }
 
 exports.handler = async (event) => {
-  console.log("event body:");
-  console.log(event.body);
+  console.log("event: ");
+  console.log(event);
 
   try {
     let body;
@@ -29,9 +29,7 @@ exports.handler = async (event) => {
       body = event.body;
     }
 
-    // TODO check routes from API gateway
-    if (1) {
-      // signUp
+    if (path === "/signup") {
       const { email, password, name } = body;
 
       await signUp(email, password, name);
@@ -40,8 +38,7 @@ exports.handler = async (event) => {
         statusCode: 201,
         body: JSON.stringify({}),
       };
-    } else if (1) {
-      // login
+    } else if (path === "/login") {
       const { email, password } = body;
 
       const result = await login(email, password);
@@ -50,14 +47,15 @@ exports.handler = async (event) => {
         statusCode: 200,
         body: JSON.stringify({
           accessToken: result.getAccessToken().getJwtToken(),
-          idToken: result.getIdToken().getJwtToken(),
-          refreshToken: result.getRefreshToken().getToken(),
         }),
       };
-    } else if (1) {
-      // logout
+    } else if (path === "/logout") {
+      // TODO implement logout flow
     } else {
-      const { email } = body;
+      return {
+        statusCode: 404,
+        body: JSON.stringify({ message: "Endpoint not found" }),
+      };
     }
   } catch (error) {
     console.error("an error has occurred: ");
