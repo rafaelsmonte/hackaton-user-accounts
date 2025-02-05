@@ -12,6 +12,7 @@ class CustomError extends Error {
 exports.handler = async (event) => {
   console.log("event: ");
   console.log(event);
+  console.log(event.rawPath);
 
   try {
     let body;
@@ -29,7 +30,7 @@ exports.handler = async (event) => {
       body = event.body;
     }
 
-    if (path === "/signup") {
+    if (event.rawPath === "/api/v1/auth/signup") {
       const { email, password, name } = body;
 
       await signUp(email, password, name);
@@ -38,7 +39,7 @@ exports.handler = async (event) => {
         statusCode: 201,
         body: JSON.stringify({}),
       };
-    } else if (path === "/login") {
+    } else if (event.rawPath === "/api/v1/auth/login") {
       const { email, password } = body;
 
       const result = await login(email, password);
