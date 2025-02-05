@@ -12,7 +12,6 @@ class CustomError extends Error {
 exports.handler = async (event) => {
   console.log("event: ");
   console.log(event);
-  console.log(event.rawPath);
 
   try {
     let body;
@@ -50,8 +49,6 @@ exports.handler = async (event) => {
           accessToken: result.getAccessToken().getJwtToken(),
         }),
       };
-    } else if (path === "/logout") {
-      // TODO implement logout flow
     } else {
       return {
         statusCode: 404,
@@ -192,5 +189,3 @@ async function login(email, password) {
     throw new CustomError("Incorrect username or password", 401);
   }
 }
-
-async function logout(email) {}
