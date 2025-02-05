@@ -50,5 +50,5 @@ jobs:
         - name: Deploy to AWS Lambda
           run: |
             aws lambda update-function-code \
-              --function-name user-accounts-servicee \
+              --function-name user-accounts-service \
               --zip-file fileb://function.zip
