@@ -1,6 +1,6 @@
 ## Handling Authentication Requests
 
-This function processes authentication-related requests, ensuring proper request validation, user verification, and response handling. It interacts with an external identity management service (AWS Cognito) to facilitate user registration and authentication.
+This function processes authentication-related requests, ensuring proper request validation, user verification, and response handling. It integrates with AWS API Gateway for event reception and AWS Cognito for user authentication.
 
 #### **1. Receiving the Request**
 
