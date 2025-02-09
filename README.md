@@ -1,6 +1,6 @@
 ## Hackathon 7SOAT User Accounts Lambda Service - FIAP
 
-This project implements lambda function to manage the user's authentication, providing methods for sign up and login.
+This project implements lambda function to integrate with an external identity management for managing the user's authentication, providing methods for sign up and login.
 
 - [Documentation](docs/service.md)
 
