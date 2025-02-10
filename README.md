@@ -16,7 +16,6 @@ This project implements lambda function to integrate with an external identity m
 
 [![Coverage Status](https://coveralls.io/repos/github/rafaelsmonte/hackaton-user-accounts/badge.svg?branch=main)](https://coveralls.io/github/rafaelsmonte/hackaton-user-accounts?branch=main)
 
-
 ![Coverage](docs/evidences/user-accounts-coverage.png)
 ![Sucessful pipeline on push](docs/evidences/user-accounts-pipeline.png)
 ![Sucessful pipeline on pr](docs/evidences/user-accounts-pipeline-pr.png)
