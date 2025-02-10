@@ -3,6 +3,8 @@
 This project implements lambda function to integrate with an external identity management for managing the user's authentication, providing methods for sign up and login.
 
 - [Documentation](docs/service.md)
+- [CI/CD](docs/ci-cd.md)
+
 
 ### Authors
 
