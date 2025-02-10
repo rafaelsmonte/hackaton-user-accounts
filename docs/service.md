@@ -2,6 +2,19 @@
 
 This function processes authentication-related requests, ensuring proper request validation, user verification, and response handling. It integrates with AWS API Gateway for event reception and AWS Cognito for user authentication.
 
+```mermaid
+sequenceDiagram
+alt sign up
+Client->>AWS API Gateway: {email, password, name}
+AWS API Gateway->>AWS Cognito: {email, password, name}
+AWS API Gateway->>Client: OK
+else login
+Client->>AWS API Gateway: {email, password}
+AWS API Gateway->>AWS Cognito: {email, password}
+AWS API Gateway->>Client: {access token}
+end
+```
+
 #### **1. Receiving the Request**
 
 - The function is triggered upon receiving an event containing a request body and metadata.
